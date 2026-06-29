@@ -1,37 +1,31 @@
 class Solution {
+private:
+    bool hasCycle(int node, vector<vector<int>>& adjList, vector<int>& state){
+        if(state[node] == 1) return true;
+        if(state[node] == 2) return false;
+
+        state[node] = 1;
+        for(int neighbor : adjList[node]){
+            if(hasCycle(neighbor, adjList, state)) return true;
+        }
+
+        state[node] = 2;
+        return false;
+    }
 public:
     bool canFinish(int numCourses, vector<vector<int>>& preq) {
         vector<vector<int>>adjList(numCourses);
-        vector<int>InDegree(numCourses);
+        vector<int> state (numCourses, 0);
 
-        for(int i=0; i<preq.size();i++){
-            int target = preq[i][0];
-            int required = preq[i][1];
-
-            adjList[required].push_back(target);
-            InDegree[target]++;
+        for(auto& pre : preq){
+            adjList[pre[1]].push_back(pre[0]);
         }
 
-        queue<int>q;
-        for(int i=0; i<numCourses;i++){
-            if(InDegree[i] == 0){
-                q.push(i);
+        for(int i=0; i<numCourses; i++){
+            if(state[i] == 0){
+                if(hasCycle(i, adjList, state)) return false;
             }
         }
-
-        int coursesTaken =0;
-        while(!q.empty()){
-            int currentCourse = q.front();
-            q.pop();
-            coursesTaken++;
-            for(int neighbor : adjList[currentCourse]){
-
-                InDegree[neighbor]--;
-                if(InDegree[neighbor] == 0){
-                    q.push(neighbor);
-                }
-            }
-        }
-        return coursesTaken == numCourses;        
+        return true;
     }
 };
