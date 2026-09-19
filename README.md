@@ -1,7 +1,7 @@
 
 # LeetCode Solutions
 
-[![LeetCode](https://img.shields.io/badge/LeetCode-aadesh--006-orange?logo=leetcode)](https://leetcode.com/u/aadesh-006)
+[![LeetCode](https://img.shields.io/badge/LeetCode-aadesh006-orange?logo=leetcode)](https://leetcode.com/u/aadesh006)
 
 A structured archive of my LeetCode problem solutions written in **C++**. Each problem lives in its own folder with the solution and the original problem statement alongside it.
 
