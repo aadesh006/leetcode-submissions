@@ -20,5 +20,5 @@ jobs:
           leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_TOKEN }}
           leetcode-session: ${{ secrets.LEETCODE_SESSION }}
           destination-folder: solutions
-          commit-author-name: "aadesh006"
-          commit-author-email: "aadeshchaudhari14@gmail.com"
+          #commit-author-name: "aadesh006"
+          #commit-author-email: "aadeshchaudhari14@gmail.com"
